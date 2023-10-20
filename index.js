@@ -91,9 +91,6 @@ var finances = [
 var numMonths = finances.length;
 console.log("There are " + numMonths + " months");
 
-// Ensure there are no duplicate months
-
-
 // Sum the net total Profit/Loss over the period
 var netTotal = 0;
 
@@ -106,21 +103,36 @@ console.log("The total net Profit is " + netTotal);
 
 // Calculate the change in profit for each month
 var netTotalChange = 0;
-var greatestProfit = [0, 0];
-var greatestLoss = [0, 0];
+var greatestProfit = 0;
+var greatestLoss = 0;
+var greatestProfitMonth = 0;
+var greatestLossMonth = 0;
 
 for (let i = 1; i < numMonths; i++) {
-  var profitChange = finances[i][1] - finances[i-1][1];
+  var profitChange = finances[i][1] - finances[i - 1][1];
   netTotalChange += profitChange;
-}
 
+  if(profitChange > greatestProfit) {
+    // Calculate the greatest Profit month
+    greatestProfit = profitChange;
+    greatestProfitMonth = finances[i];
+    
+  } else if (profitChange < greatestLoss) {
+    // Calculate the greatest Loss month
+    greatestLoss = profitChange;
+    greatestLossMonth = finances[i];
+  }
+}
 
 // Calculate the average changes in Profit/Loss over the entire period (net total change/number of months -1)
 var averageChange = netTotalChange/(numMonths - 1);
 
 console.log("The average change is " + averageChange);
-// Calculate and return the greatest Profit month
-// Calculate and return the greatest Loss month
 
+// Display greatest profit month and gratest loss month
+console.log(greatestProfitMonth[0]);
+console.log(greatestProfit);
+console.log(greatestLossMonth[0]);
+console.log(greatestLoss);
 
 // Display analysis in browser
