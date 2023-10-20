@@ -87,9 +87,11 @@ var finances = [
   ['Feb-2017', 671099],
 ];
 
+// Alert the user to open the console
+alert("Open the Console");
+
 // Calculate the total number of months in the dataset
 var numMonths = finances.length;
-console.log("There are " + numMonths + " months");
 
 // Sum the net total Profit/Loss over the period
 var netTotal = 0;
@@ -98,8 +100,6 @@ for (let i = 0; i < numMonths; i++) {
   var profitLoss = finances[i][1];
   netTotal += profitLoss;
 }
-
-console.log("The total net Profit is " + netTotal);
 
 // Calculate the change in profit for each month
 var netTotalChange = 0;
@@ -115,24 +115,22 @@ for (let i = 1; i < numMonths; i++) {
   if(profitChange > greatestProfit) {
     // Calculate the greatest Profit month
     greatestProfit = profitChange;
-    greatestProfitMonth = finances[i];
+    greatestProfitMonth = finances[i][0];
     
   } else if (profitChange < greatestLoss) {
     // Calculate the greatest Loss month
     greatestLoss = profitChange;
-    greatestLossMonth = finances[i];
+    greatestLossMonth = finances[i][0];
   }
 }
 
 // Calculate the average changes in Profit/Loss over the entire period (net total change/number of months -1)
 var averageChange = netTotalChange/(numMonths - 1);
 
-console.log("The average change is " + averageChange);
-
-// Display greatest profit month and gratest loss month
-console.log(greatestProfitMonth[0]);
-console.log(greatestProfit);
-console.log(greatestLossMonth[0]);
-console.log(greatestLoss);
-
 // Display analysis in browser
+console.log("Financial Analysis");
+console.log("Total Months: " + numMonths);
+console.log("Net Total: $" + netTotal);
+console.log("Average Profit/Loss change: $" + Math.round(averageChange * 100) / 100);
+console.log("Greatest Profit Increase: $" + greatestProfit + " (" + greatestProfitMonth + ")");
+console.log("Greatest Profit Decrease: $" + greatestLoss + " (" + greatestLossMonth + ")");
