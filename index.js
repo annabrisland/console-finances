@@ -88,7 +88,22 @@ var finances = [
 ];
 
 // Calculate the total number of months in the dataset
+var numMonths = finances.length;
+console.log("There are " + numMonths + " months");
+
 // Ensure there are no duplicate months
+
+
+// Sum the net total Profit/Loss over the period
+var netTotal = 0;
+
+for (let i = 0; i < numMonths; i++) {
+  var profitLoss = finances[i][1];
+  netTotal += profitLoss;
+}
+
+console.log("The total net Profit is " + netTotal);
+
 // Sum the net total Profit/Loss over the period
 // Calculate the average changes in Profit/Loss over the entire period (net total/number of months -1)
 // Calculate and return the greatest Profit month
