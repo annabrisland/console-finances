@@ -104,8 +104,23 @@ for (let i = 0; i < numMonths; i++) {
 
 console.log("The total net Profit is " + netTotal);
 
-// Sum the net total Profit/Loss over the period
-// Calculate the average changes in Profit/Loss over the entire period (net total/number of months -1)
+// Calculate the change in profit for each month
+var netTotalChange = 0;
+var greatestProfit = [0, 0];
+var greatestLoss = [0, 0];
+
+for (let i = 1; i < numMonths; i++) {
+  var profitChange = finances[i][1] - finances[i-1][1];
+  netTotalChange += profitChange;
+}
+
+
+// Calculate the average changes in Profit/Loss over the entire period (net total change/number of months -1)
+var averageChange = netTotalChange/(numMonths - 1);
+
+console.log("The average change is " + averageChange);
 // Calculate and return the greatest Profit month
 // Calculate and return the greatest Loss month
+
+
 // Display analysis in browser
