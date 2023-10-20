@@ -86,3 +86,11 @@ var finances = [
   ['Jan-2017', 138230],
   ['Feb-2017', 671099],
 ];
+
+// Calculate the total number of months in the dataset
+// Ensure there are no duplicate months
+// Sum the net total Profit/Loss over the period
+// Calculate the average changes in Profit/Loss over the entire period (net total/number of months -1)
+// Calculate and return the greatest Profit month
+// Calculate and return the greatest Loss month
+// Display analysis in browser
